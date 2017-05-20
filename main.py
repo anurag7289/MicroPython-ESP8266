@@ -76,7 +76,7 @@ def tempHum():
             count=0    
         oled.show()
         print(count)
-        time.sleep(120)        
+        time.sleep(0.5)        
         count=count-1
     print('Task Over')
 
