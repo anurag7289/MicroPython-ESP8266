@@ -61,20 +61,20 @@ def wifiConnect():
         blinkStatus()
 		
 def tempHum():
-	while True:
-		oled.scroll(0, count)
-		if count== -5:
-			d.measure()
-			temp='T: '+str(d.temperature())+' C'
-			hum='H: '+str(d.humidity())+' % RH'
-			cdisp=temp+' / '+hum
-			print(cdisp)    # eg. 41 (% RH)        
-			oled.text(str(cdisp), 0, 30)            
-			count=0    
-		oled.show()
-		time.sleep(5)
-		print(count)
-		count=count-1
+    while True:
+        oled.scroll(0, count)
+        if count== -5:
+            d.measure()
+            temp='T: '+str(d.temperature())+' C'
+            hum='H: '+str(d.humidity())+' % RH'
+            cdisp=temp+' / '+hum
+            print(cdisp)    # eg. 41 (% RH)        
+            oled.text(str(cdisp), 0, 30)            
+            count=0    
+        oled.show()
+        time.sleep(5)
+        print(count)
+        count=count-1
 
 wifiScan()
 wifiConnect()
