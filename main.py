@@ -14,12 +14,8 @@ oled=ssd1306.SSD1306_I2C(128, 64, i2c)
 oled.poweron()
 oled.init_display()
 oled.fill(0)
-d = dht.DHT11(machine.Pin(13))
-time.sleep(2)
-temp=''
-hum=''
-cdisp=temp+' / '+hum
-count=0
+
+
 
 
 def blinkStatus():
@@ -59,8 +55,15 @@ def wifiConnect():
         print('Connected to ')
         print(wssid)
         blinkStatus()
-		
+        
 def tempHum():
+    print('Connecting DHT11..')
+    d = dht.DHT11(machine.Pin(13))
+    temp=''
+    hum=''
+    cdisp=temp+' / '+hum
+    count=0
+    print('Connected to DHT11')
     while True:
         oled.scroll(0, count)
         if count== -5:
@@ -72,9 +75,10 @@ def tempHum():
             oled.text(str(cdisp), 0, 30)            
             count=0    
         oled.show()
-        time.sleep(5)
         print(count)
+        time.sleep(120)        
         count=count-1
+    print('Task Over')
 
 wifiScan()
 wifiConnect()
