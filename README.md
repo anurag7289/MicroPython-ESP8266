@@ -7,3 +7,7 @@ ESP8266 With MicroPython
   4. OnBoard LED Bink (PIN 2) 
   5. OLED I2C 
   6. DHT11 (Temperature and Humidity)
+
+
+### Device
+![Device Connectivity](/img2.jpg)
